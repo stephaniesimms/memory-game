@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="flex-top">
+            <div class="title">
+                <h1>Biergarten Memory Game</h1>
+            </div>
+            <div class="score-board">
+                <div class="counter">
+                    <div>Clicks</div>
+                    <div class="clicks">__</div>
+                </div>
+                <div class="best-score">
+                    <div>Best Score</div>
+                    <div class="recorded-best-score">__</div>
+                </div>
+            </div>
+        </div>
+        <p>Click on a card to flip it over. Match pairs of cards in as few clicks as possible.</p>
+    </header>
+
+    <section class="game">
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+        <div class="card">
+            <img class="front-face" src="" alt="">
+            <img class="back-face" src="" alt="">
+            <p class="label"></p>
+        </div>
+    </section>
+
+    <section class="popup">
+        <h1>Prost!</h1>
+        <p>You Win!</p>
+        <button id="play-again" onclick="playAgain()">
+            Play again
+        </button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
