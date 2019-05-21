@@ -60,6 +60,8 @@ function deckSetup(cards) {
 
     let frontFace = card.getElementsByClassName("front-face")[0];
     frontFace.setAttribute("src", frontFaceImages[i]);
+
+    card.classList.remove('flip');
   }
 }
 
@@ -72,6 +74,7 @@ function flipCard() {
     clicks++;
     firstCard = this;
     hasFlippedCard = true;
+    displayCounter();
     return;
   }
 
@@ -79,12 +82,16 @@ function flipCard() {
     clicks++;
     secondCard = this;
     hasFlippedCard = false;
+    displayCounter();
     checkMatch();
   }
 
   checkFinished();
 }
 
+function displayCounter() {
+  counter.innerHTML = clicks;
+}
 
 function unflipCards() {
   lock = true;
@@ -113,16 +120,31 @@ function checkMatch() {
   }
 }
 
-
 function checkFinished() {
   if (matched.length === 12) {
     displayWinModal();
+    storeBestScore();
   }
 }
 
+function storeBestScore() {
+  let bestScore = localStorage.getItem('bestScore'); 
+  if (bestScore === null || clicks < bestScore) {
+    localStorage.setItem("bestScore", JSON.stringify(clicks));
+  }
+  let recordedBestScore = document.getElementsByClassName("recorded-best-score")[0];
+  recordedBestScore.innerText = JSON.parse(localStorage.getItem("bestScore"));
+}
+
+
 function displayWinModal() {
-  let popup = document.getElementsByClassName("popup")[0];
-  popup.style.display = "flex";
+  lock = true;
+  setTimeout(() => {
+    let popup = document.getElementsByClassName("popup")[0];
+    popup.style.display = "flex";
+
+    lock = false;
+  }, 800);
 }
 
 function startGame() {
