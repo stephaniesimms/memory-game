@@ -17,29 +17,26 @@ let cardImages = [
 let backFaceImage = "./images/checkerboard.png";
 
 let matched = [];
-
-let clicks = 0;
-let counter = document.getElementsByClassName("clicks")[0];
-
 let hasFlippedCard = false;
 let lock = false;
 let firstCard, secondCard;
 
+let clicks = 0;
+let counter = document.getElementsByClassName("clicks")[0];
+
 window.onload = startGame();
 
-
 function shuffle(arr) {
-    var i, j, temp;
-    let shuffledArr = arr.slice();
-    for (i = arr.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        temp = shuffledArr[i];
-        shuffledArr[i] = shuffledArr[j];
-        shuffledArr[j] = temp;
-    }
-    return shuffledArr;
+  var i, j, temp;
+  let shuffledArr = arr.slice();
+  for (i = arr.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = shuffledArr[i];
+    shuffledArr[i] = shuffledArr[j];
+    shuffledArr[j] = temp;
+  }
+  return shuffledArr;
 }
-
 
 function selectAndShuffle() {
   let shuffledImages = shuffle(cardImages).splice(0, 6);
@@ -47,7 +44,6 @@ function selectAndShuffle() {
   let shuffledFrontFaces = shuffle(frontImages);
   return shuffledFrontFaces;
 }
-
 
 function deckSetup(cards) {
   let frontFaceImages = selectAndShuffle();
@@ -61,15 +57,14 @@ function deckSetup(cards) {
     let frontFace = card.getElementsByClassName("front-face")[0];
     frontFace.setAttribute("src", frontFaceImages[i]);
 
-    card.classList.remove('flip');
+    card.classList.remove("flip");
   }
 }
-
 
 function flipCard() {
   if (lock) { return; }
 
-  this.classList.add('flip');
+  this.classList.add("flip");
   if (!hasFlippedCard) {
     clicks++;
     firstCard = this;
@@ -96,21 +91,21 @@ function displayCounter() {
 function unflipCards() {
   lock = true;
   setTimeout(() => {
-     firstCard.classList.remove('flip');
-     secondCard.classList.remove('flip');
+    firstCard.classList.remove("flip");
+    secondCard.classList.remove("flip");
 
-     lock = false;
+    lock = false;
    }, 800);
 }
 
 function disableCard() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
+  firstCard.removeEventListener("click", flipCard);
+  secondCard.removeEventListener("click", flipCard);
 }
 
 function checkMatch() {
-  let firstCardID = firstCard.getElementsByClassName('front-face')[0].getAttribute('src');
-  let secondCardID = secondCard.getElementsByClassName('front-face')[0].getAttribute('src');
+  let firstCardID = firstCard.getElementsByClassName("front-face")[0].getAttribute("src");
+  let secondCardID = secondCard.getElementsByClassName("front-face")[0].getAttribute("src");
 
   if (firstCardID === secondCardID) {
     matched.push(firstCard, secondCard);
@@ -128,14 +123,13 @@ function checkFinished() {
 }
 
 function storeBestScore() {
-  let bestScore = localStorage.getItem('bestScore'); 
+  let bestScore = localStorage.getItem("bestScore"); 
   if (bestScore === null || clicks < bestScore) {
     localStorage.setItem("bestScore", JSON.stringify(clicks));
   }
   let recordedBestScore = document.getElementsByClassName("recorded-best-score")[0];
   recordedBestScore.innerText = JSON.parse(localStorage.getItem("bestScore"));
 }
-
 
 function displayWinModal() {
   lock = true;
@@ -152,10 +146,9 @@ function startGame() {
   deckSetup(cards);
 
   for (let card of cards) {
-    card.addEventListener('click', flipCard);
+    card.addEventListener("click", flipCard);
   }
 }
-
 
 function playAgain() {
   lock = false;
