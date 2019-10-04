@@ -23,14 +23,14 @@ body {
 h1 {
   font-family: 'UnifrakturMaguntia', cursive;
   font-size: 5.5rem;
-  margin: 0;
+  margin-bottom: .4em;
 }
 
 /* Layout */
 
 .container {
   width: 90%;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -41,37 +41,30 @@ h1 {
   align-items: center;
 }
 
+header {
+  text-align: center;
+  padding: 1.5em;
+}
+
+#instructions {
+  margin-top: 1.8em;
+}
+
 @media (min-width: 700px) {
   .container-flex {
     flex-direction: row;
   }
+
+  #instructions {
+    margin-top: 0;
+  }
 }
 
-/* Header */
-
-header {
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-}
-
-
-
-/* .flex-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 15px;
-} */
-
-.title {
-  margin-right: auto;
-  margin-left: auto;
-}
+/* Scoreboard */
 
 .score-board {
-  /* align-items: center; */
-  width: 200px;
+  min-width: 150px;
+  background: pink; 
 }
 
 /* Game */
